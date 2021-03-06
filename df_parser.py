@@ -15,9 +15,9 @@ def enter_category(cat_colab):
     x = cat_colab.title()
     df_search = df1[(df1['Colab'] == x)]
     return df_search
-try:
-  with open(file, "rb") as f:
-    pk_1 = f.read()
+#file variable above may skip the trial block since the function isn't called
+  try:
+  with open("FILE NAME", "rb") as f:
     print("You are ready to search!")
 except:
   print("PLEASE LOAD What Ever File that's loaded")
