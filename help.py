@@ -90,6 +90,7 @@ app.layout = html.Div(children=[ html.H1('US Domestic Airline Flights Performanc
                                             html.H2('Report Type:', style={'margin-right': '2em'}),
                                             ]
                                         ),
+                                        # TODO2: Add a dropdown
                                         dcc.Dropdown(id='input-type', 
                                                      # Update dropdown values using list comphrehension
                                                      options=[{'label': 'Yearly Airline Performance Report', 'value': 'OPT1'},
@@ -97,11 +98,26 @@ app.layout = html.Div(children=[ html.H1('US Domestic Airline Flights Performanc
                                                              ],
                                                      placeholder="Select a report type",
                                                      style={'width':'80%', 'padding':'3px', 'font-size': '20px', 'text-align-last' : 'center'}),
-                                            # Place them next to each other using the division style
-                                        
                                     # Place them next to each other using the division style
-                                            ], style={'display':'flex'}),
+                                    ], style={'display':'flex'}),
+                                    
+                                   # Add next division 
+                                   html.Div([
+                                       # Create an division for adding dropdown helper text for choosing year
+                                        html.Div(
+                                            [
+                                            html.H2('Choose Year:', style={'margin-right': '2em'})
+                                            ]
+                                        ),
+                                        dcc.Dropdown(id='input-year', 
+                                                     # Update dropdown values using list comphrehension
+                                                     options=[{'label': i, 'value': i} for i in year_list],
+                                                     placeholder="Select a year",
+                                                     style={'width':'80%', 'padding':'3px', 'font-size': '20px', 'text-align-last' : 'center'}),
+                                            # Place them next to each other using the division style
+                                            ], style={'display': 'flex'}),  
                                           ]),
+                                        
                                     
                                    # Add next division 
                                    html.Div([
@@ -117,8 +133,8 @@ app.layout = html.Div(children=[ html.H1('US Domestic Airline Flights Performanc
                                                      placeholder="Select a year",
                                                      style={'width':'80%', 'padding':'3px', 'font-size': '20px', 'text-align-last' : 'center'}),
                                             # Place them next to each other using the division style
-                                            ], style={'display': 'flex'}),  
-                                          ]),
+                                   ], style={'display': 'flex'}),  
+                                         
                                 
                                 # Add Computed graphs
                                 # REVIEW3: Observe how we add an empty division and providing an id that will be updated during callback
